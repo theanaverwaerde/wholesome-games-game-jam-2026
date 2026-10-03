@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfn7uu8eith1n"]
 
 [ext_resource type="Script" uid="uid://bqjjurttickbd" path="res://character_body_3d.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://b8h73duc78cib" path="res://smoke_07.png" id="2_onrkg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_m6kt4"]
 height = 0.3
@@ -24,6 +25,55 @@ height = 0.1
 radius = 0.15
 height = 0.3
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m6kt4"]
+particle_flag_align_y = true
+particle_flag_inherit_emitter_scale = true
+emission_shape_offset = Vector3(0, -0.17, -3.34)
+emission_shape_scale = Vector3(2.18, 1, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 92.20001
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -13.530002
+radial_accel_max = -6.950002
+scale_min = 0.0
+scale_max = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pqv"]
+transparency = 1
+cull_mode = 2
+shading_mode = 2
+albedo_texture = ExtResource("2_onrkg")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+grow_amount = -16.0
+proximity_fade_distance = 2.0
+distance_fade_min_distance = 1.0
+distance_fade_max_distance = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_vb667"]
+material = SubResource("StandardMaterial3D_i3pqv")
+
+[sub_resource type="CurveTexture" id="CurveTexture_kbh0g"]
+texture_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qmqlm"]
+direction = Vector3(0, 0, -1)
+spread = 15.584
+initial_velocity_min = 20.15
+initial_velocity_max = 31.14
+gravity = Vector3(0, 0, 0)
+damping_min = 28.755001
+damping_max = 33.334003
+scale_curve = SubResource("CurveTexture_kbh0g")
+
 [node name="CharacterBody3D" type="VehicleBody3D" unique_id=742756424]
 mass = 10.0
 center_of_mass_mode = 1
@@ -33,7 +83,7 @@ angular_damp = 5.94
 script = ExtResource("1_4flbx")
 
 [node name="Camera3D2" type="Camera3D" parent="." unique_id=172320581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38443077, -0.29250017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38443077, -0.29250002)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=563267023]
@@ -84,3 +134,23 @@ metadata/_edit_group_ = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Front" unique_id=129557011]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("SphereMesh_onrkg")
+
+[node name="Grab" type="GPUParticles3D" parent="." unique_id=1243862927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.467)
+emitting = false
+amount = 72
+interp_to_end = 1.0
+preprocess = 1.18
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_m6kt4")
+draw_pass_1 = SubResource("QuadMesh_vb667")
+
+[node name="Drop" type="GPUParticles3D" parent="." unique_id=1404620711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.467)
+emitting = false
+amount = 7
+lifetime = 0.65
+one_shot = true
+explosiveness = 0.83
+process_material = SubResource("ParticleProcessMaterial_qmqlm")
+draw_pass_1 = SubResource("QuadMesh_vb667")

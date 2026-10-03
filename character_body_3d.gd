@@ -6,6 +6,24 @@ const DEFAULT_BRAKE = 2000.0
 @onready var left: VehicleWheel3D = $Left
 @onready var right: VehicleWheel3D = $Right
 
+@onready var grab: GPUParticles3D = $Grab
+@onready var drop: GPUParticles3D = $Drop
+
+var have_item: bool
+var vacuum: bool
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("action"):
+		if have_item:
+			# TODO Drop item
+			drop.emitting = true
+		else:
+			vacuum = true
+			grab.emitting = true
+	if event.is_action_released("action") and vacuum:
+		vacuum = false
+		grab.emitting = false
+
 func _physics_process(_delta: float) -> void:
 	var input := Input.get_vector("right", "left", "down", "up")
 	
