@@ -26,10 +26,10 @@ size = Vector2(10, 10)
 [sub_resource type="SphereMesh" id="SphereMesh_uhqqe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rjpwp"]
-size = Vector3(0.3330078, 0.051757813, 1)
+size = Vector3(2.083, 0.052, 2.12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m6kt4"]
-size = Vector3(0.3330078, 0.051757813, 1)
+size = Vector3(2.083, 0.052, 2.12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u71n4"]
 
@@ -72,7 +72,7 @@ shape = SubResource("SphereShape3D_ia1lp")
 mesh = SubResource("SphereMesh_uhqqe")
 
 [node name="Node3D2" type="StaticBody3D" parent="." unique_id=1027260773]
-transform = Transform3D(0.6128888, 0.5790192, 0.537684, -0.122807845, 0.74199915, -0.6590565, -0.78056747, 0.33789653, 0.52587104, -1.5921366, 0.3438934, 0.4738242)
+transform = Transform3D(0.6354652, 0.29131007, 0.71506816, -0.034405023, 0.9358618, -0.35068375, -0.77136254, 0.19824544, 0.60473007, -1.0489062, 0.33601272, 0.96396667)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2" unique_id=1115354941]
