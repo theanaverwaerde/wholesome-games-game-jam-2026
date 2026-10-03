@@ -49,7 +49,7 @@ mesh = SubResource("BoxMesh_p8lkw")
 
 [node name="Player" parent="." unique_id=1768617673 instance=ExtResource("1_uhqqe")]
 unique_name_in_owner = true
-transform = Transform3D(0.73345065, 0, 0.6797427, 0, 1, 0, -0.6797427, 0, 0.73345065, 0.07154751, 0, 1.9920118)
+transform = Transform3D(0.73345065, 0, 0.6797427, 0, 1, 0, -0.6797427, 0, 0.73345065, 0.07154751, 1.4024415, 1.9920118)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1825569953]
 metadata/_edit_group_ = true
@@ -90,5 +90,8 @@ shape = SubResource("BoxShape3D_u71n4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1426961837]
 mesh = SubResource("BoxMesh_vb667")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1400996302]
+transform = Transform3D(0.8650878, -0.3055967, 0.39778617, 2.2351742e-08, 0.79300207, 0.6092189, -0.5016206, -0.5270277, 0.68601644, 1.3520503, 1.2446606, 1.9823837)
 
 [editable path="Player"]

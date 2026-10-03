@@ -1,12 +1,16 @@
-extends RigidBody3D
+extends VehicleBody3D
 
-const SPEED = 4.0
-const ROTATE_SPEED = 10.0
+const FORCE = 100.0
 
-func _integrate_forces(state):
-	var input_dir := Input.get_vector("left", "right", "up", "down")
-	var direction := transform.basis * Vector3(0, 0, input_dir.y)
-	if direction:
-		state.set_linear_velocity(direction * SPEED)
-	if input_dir.x:
-		state.set_angular_velocity(Vector3.UP * (-input_dir.x * ROTATE_SPEED))
+@onready var left: VehicleWheel3D = $Left
+@onready var right: VehicleWheel3D = $Right
+
+func _physics_process(_delta: float) -> void:
+	var forward_input := Input.get_axis("down", "up")
+	var turn_input := Input.get_axis("right", "left")
+	
+	left.engine_force = (forward_input - turn_input) * FORCE
+	right.engine_force = (forward_input + turn_input) * FORCE
+
+	if not left.is_in_contact() and not right.is_in_contact():
+		print("no wheel on the ground!")
