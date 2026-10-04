@@ -9,6 +9,11 @@ class_name GameManager
 @onready var vacumm_tuto: Label = $VacummTuto
 @onready var drop_tuto: Label = $DropTuto
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	animation_player.play("enter")
+
 func _ui_item(item: Collectible.ItemType) -> TextureRect: 
 	match item:
 		Collectible.ItemType.PLAYER:
@@ -52,7 +57,8 @@ func win():
 	if not Music.playing:
 		Music.play()
 		await get_tree().create_timer(5).timeout
-		# TODO black fade out animation
+		animation_player.play("end")
+		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file("res://end1.tscn")
 
 func _on_first_room_body_exited(body: Node3D) -> void:
