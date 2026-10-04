@@ -220,7 +220,7 @@ offset_left = 0.15200007
 offset_top = 0.13598633
 offset_right = 0.28796387
 offset_bottom = -0.16802979
-theme_override_colors/font_color = Color(0.7411765, 0.8509804, 0.98039216, 1)
+theme_override_colors/font_color = Color(0.03137255, 0.15294118, 0.28235295, 1)
 theme_override_fonts/font = ExtResource("14_gu47o")
 text = "MOVE ROBOT:
  WASD or ZQSD or ARROWS (keyboard)  |  Left Stick"
@@ -237,7 +237,7 @@ offset_left = -0.30400014
 offset_top = -0.06402588
 offset_right = -0.6960449
 offset_bottom = 0.27996826
-theme_override_colors/font_color = Color(0.7411765, 0.8509804, 0.98039216, 1)
+theme_override_colors/font_color = Color(0.030935595, 0.153842, 0.28125444, 1)
 theme_override_fonts/font = ExtResource("14_gu47o")
 text = "VACUUM ITEMS: 
 Hold E or Spacebar (keyboard)  |  Hold Xbox A - Switch B - PS5 X"
@@ -253,7 +253,7 @@ anchor_bottom = 0.98800004
 offset_left = 0.27996826
 offset_top = 0.13598633
 offset_bottom = -0.22399902
-theme_override_colors/font_color = Color(0.7394518, 0.85234517, 0.97942966, 1)
+theme_override_colors/font_color = Color(0.03137255, 0.15294118, 0.28235295, 1)
 theme_override_fonts/font = ExtResource("14_gu47o")
 text = "RELEASE ITEM:
 Simple press on VACUUM key"
