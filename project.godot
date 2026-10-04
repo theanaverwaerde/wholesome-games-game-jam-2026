@@ -24,6 +24,10 @@ window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="Wholesome Games Game Jam 2026"
+
 [input]
 
 up={
@@ -56,10 +60,6 @@ action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
-
-[dotnet]
-
-project/assembly_name="Wholesome Games Game Jam 2026"
 
 [physics]
 

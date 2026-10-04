@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dihra13wvllyn" path="res://assets/KayKit_Furniture_Bits/gltf/rug_rectangle_A.gltf" id="1_2htmw"]
 [ext_resource type="PackedScene" uid="uid://43ne23lqpyhh" path="res://assets/KayKit_Restaurant_Bits/gltf/table_round_A.gltf" id="1_rxxv7"]
 [ext_resource type="PackedScene" uid="uid://fu5os8aeurp3" path="res://assets/KayKit_Restaurant_Bits/gltf/chair_A.gltf" id="2_66mxj"]
+[ext_resource type="PackedScene" uid="uid://mtny3a011dd6" path="res://earbuds_3d_scene.tscn" id="2_bcynp"]
 [ext_resource type="PackedScene" uid="uid://0rvj7eneya11" path="res://assets/KayKit_Restaurant_Bits/gltf/wall_window_closed.gltf" id="3_bdi7n"]
 [ext_resource type="PackedScene" uid="uid://kpkw2ldrn7pj" path="res://assets/KayKit_Restaurant_Bits/gltf/wall.gltf" id="4_uhukq"]
 [ext_resource type="PackedScene" uid="uid://bm83l7douxx8l" path="res://assets/KayKit_Restaurant_Bits/gltf/floor_kitchen_small.gltf" id="5_wro5c"]
@@ -115,6 +116,10 @@
 
 [node name="Plafongue" parent="." unique_id=2047454874 instance=ExtResource("1_2htmw")]
 transform = Transform3D(14.342959, 0, 0, 0, 1, 0, 0, 0, 25.944363, 16.861006, 5.877468, 23.712645)
+visible = false
+
+[node name="Ebuds" parent="." unique_id=780444378 instance=ExtResource("2_bcynp")]
+transform = Transform3D(0.31691945, 0.38673252, -1.6904615e-08, 6.9509954e-16, -2.1855694e-08, -0.5, -0.38673252, 0.31691945, -1.3852992e-08, 10.2499, -9.536743e-07, 0.82100844)
 
 [node name="table_round_A2" parent="." unique_id=1809279530 instance=ExtResource("1_rxxv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.390449, -4.4703484e-08, 4.249054)
@@ -216,9 +221,11 @@ transform = Transform3D(1.3173829, 0, 0, 0, 1, 0, 0, 0, 1, 6.5696955, 0, 10.96)
 
 [node name="wall20" parent="Walls" unique_id=309075935 instance=ExtResource("4_uhukq")]
 transform = Transform3D(-3.3022707, 8.742277e-08, 0, -2.8869366e-07, -0.9999999, 0, 0, 0, 1, 2.696, 7.9, 23.607927)
+visible = false
 
 [node name="wall21" parent="Walls" unique_id=1503624628 instance=ExtResource("4_uhukq")]
 transform = Transform3D(1.3173829, 0, 0, 0, 1, 0, 0, 0, 1, 6.5696955, 0, 23.607927)
+visible = false
 
 [node name="wall8" parent="Walls" unique_id=1359965206 instance=ExtResource("4_uhukq")]
 transform = Transform3D(-9.7722456e-08, 0, 0.99999994, 0, 0.99999994, 0, -2.2356293, 0, -4.3711385e-08, 9.076, 0, 3.151)
@@ -542,6 +549,7 @@ transform = Transform3D(1.0344305, 0, 0, 0, 1.0178757, 0, 0, 0, 1, 14.2546425, -
 
 [node name="door_A2" parent="." unique_id=368959128 instance=ExtResource("34_b4et5")]
 transform = Transform3D(4.486391, 0, 0, 0, 1.4121748, 0, 0, 0, 1, -3.1074104, 0, 23.492945)
+visible = false
 
 [node name="rug_rectangle_stripes_B2" parent="." unique_id=1355046102 instance=ExtResource("35_pkngq")]
 transform = Transform3D(4.3244367, 0, 0, 0, 1, 0, 0, 0, 6.6512876, 2.85, 0, 17.514)

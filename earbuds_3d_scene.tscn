@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://mtny3a011dd6"]
+
+[ext_resource type="PackedScene" uid="uid://dpxa2pyl7g3gd" path="res://assets/Earbuds3D.blend" id="1_kcntj"]
+[ext_resource type="Texture2D" uid="uid://5kn6vnr0lud8" path="res://assets/Earbuds2.png" id="2_m0yey"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4mlkt"]
+transparency = 1
+albedo_texture = ExtResource("2_m0yey")
+
+[sub_resource type="QuadMesh" id="QuadMesh_lg67w"]
+material = SubResource("StandardMaterial3D_4mlkt")
+orientation = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5c3g"]
+transparency = 1
+cull_mode = 1
+albedo_texture = ExtResource("2_m0yey")
+
+[sub_resource type="QuadMesh" id="QuadMesh_36fa0"]
+material = SubResource("StandardMaterial3D_o5c3g")
+orientation = 1
+
+[node name="Ebuds" type="Node3D" unique_id=780444378]
+
+[node name="Earbuds3D2" parent="." unique_id=1274547301 instance=ExtResource("1_kcntj")]
+transform = Transform3D(40.405, 0, 0, 0, 29.699, 0, 0, 0, 43.345, 0.067057684, 0, 0.008194879)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1100796535]
+transform = Transform3D(2.1543052, 0, 0, 0, 19.088549, 0, 0, 0, 2.1543052, 1.52, 0.04, -1.287)
+mesh = SubResource("QuadMesh_lg67w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=232952341]
+transform = Transform3D(2.1543052, 0, 0, 0, 19.088541, 0, 0, 0, 2.1543052, 1.52, -0.044, -1.287)
+mesh = SubResource("QuadMesh_36fa0")
