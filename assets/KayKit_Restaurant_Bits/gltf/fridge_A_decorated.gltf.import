@@ -39,7 +39,16 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:fridge_A_decorated": {
+"generate/physics": true
+},
+"PATH:fridge_A_decorated/fridge_A_decorated_door_bottom": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
 gltf/texture_map_mode=1

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wholesome Games Game Jam 2026"
-run/main_scene="uid://bof2ilycufow5"
+run/main_scene="uid://t2hgr55t6axg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.9411765, 0.9843137, 0.99607843, 1)
 boot_splash/stretch_mode=4
