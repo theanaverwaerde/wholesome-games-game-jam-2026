@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cc8jlyv2d6h3k" path="res://assets/Player2.png" id="10_5c1cw"]
 [ext_resource type="Shader" uid="uid://wj18u52kld3f" path="res://item_ui.tres" id="10_gu47o"]
 [ext_resource type="Texture2D" uid="uid://clys4j7sr1c5p" path="res://assets/K72.png" id="11_akxrc"]
+[ext_resource type="FontFile" uid="uid://ckkm6j6ipbvr1" path="res://assets/fonts/RifficFree-Bold.ttf" id="14_gu47o"]
 
 [sub_resource type="Environment" id="Environment_m6kt4"]
 
@@ -173,9 +174,17 @@ grow_vertical = 2
 script = ExtResource("9_akxrc")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="GameManager" unique_id=413108272]
-layout_mode = 0
-offset_right = 37.0
-offset_bottom = 94.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.020000001
+anchor_right = 0.066
+anchor_bottom = 0.261
+offset_left = -0.31099987
+offset_top = -0.10500145
+offset_right = -24.366997
+offset_bottom = -62.27301
+scale = Vector2(1.665, 1.665)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -199,6 +208,56 @@ material = SubResource("ShaderMaterial_8hm71")
 layout_mode = 2
 texture = ExtResource("11_akxrc")
 expand_mode = 5
+
+[node name="Label" type="Label" parent="GameManager" unique_id=1763200868]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.001
+anchor_top = 0.91800004
+anchor_right = 0.40600002
+anchor_bottom = 0.99100006
+offset_left = 0.15200007
+offset_top = 0.13598633
+offset_right = 0.28796387
+offset_bottom = -0.16802979
+theme_override_colors/font_color = Color(0.7411765, 0.8509804, 0.98039216, 1)
+theme_override_fonts/font = ExtResource("14_gu47o")
+text = "MOVE ROBOT:
+ WASD or ZQSD or ARROWS (keyboard)  |  Left Stick"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="GameManager" unique_id=241027858]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.818
+anchor_right = 0.998
+anchor_bottom = 0.89000005
+offset_left = -0.30400014
+offset_top = -0.06402588
+offset_right = -0.6960449
+offset_bottom = 0.27996826
+theme_override_colors/font_color = Color(0.7411765, 0.8509804, 0.98039216, 1)
+theme_override_fonts/font = ExtResource("14_gu47o")
+text = "VACUUM ITEMS: 
+Hold E or Spacebar (keyboard)  |  Hold Xbox A - Switch B - PS5 X"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="GameManager" unique_id=839854576]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.735
+anchor_top = 0.91800004
+anchor_right = 1.0
+anchor_bottom = 0.98800004
+offset_left = 0.27996826
+offset_top = 0.13598633
+offset_bottom = -0.22399902
+theme_override_colors/font_color = Color(0.7394518, 0.85234517, 0.97942966, 1)
+theme_override_fonts/font = ExtResource("14_gu47o")
+text = "RELEASE ITEM:
+Simple press on VACUUM key"
+horizontal_alignment = 1
 
 [connection signal="drop_item" from="Player" to="GameManager" method="_on_player_drop_item"]
 [connection signal="get_item" from="Player" to="GameManager" method="_on_player_get_item"]
