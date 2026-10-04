@@ -42,7 +42,8 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:couch": {
-"generate/physics": true
+"generate/physics": true,
+"physics/layer": 3
 }
 }
 }

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c6iofncw3wjrp"]
+
+[ext_resource type="Script" uid="uid://v25ieoekekoc" path="res://collectible.gd" id="1_rd2yi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8lkw"]
+size = Vector3(0.25, 1.436, 0.25)
+
+[sub_resource type="Animation" id="Animation_rd2yi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movable:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.1415925, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Movable:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_8orai"]
+resource_name = "item_anim"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Movable:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Movable:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.46, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yciwo"]
+_data = {
+&"RESET": SubResource("Animation_rd2yi"),
+&"item_anim": SubResource("Animation_8orai")
+}
+
+[node name="Collectible" type="RigidBody3D" unique_id=20436877]
+collision_layer = 4
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+linear_damp = 14.31
+script = ExtResource("1_rd2yi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1277389056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.726, 0)
+shape = SubResource("BoxShape3D_p8lkw")
+debug_color = Color(0.9909416, 0, 0.2659927, 1)
+
+[node name="Movable" type="Node3D" parent="." unique_id=1510443856]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1787558943]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_yciwo")

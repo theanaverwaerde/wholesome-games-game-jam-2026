@@ -43,7 +43,9 @@ _subresources={
 "nodes": {
 "PATH:train_tender_presents_A": {
 "generate/physics": true,
-"physics/body_type": 1
+"physics/body_type": 1,
+"physics/layer": 8,
+"physics/mask": 11
 }
 }
 }

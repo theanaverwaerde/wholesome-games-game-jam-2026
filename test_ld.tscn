@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dihra13wvllyn" path="res://assets/KayKit_Furniture_Bits/gltf/rug_rectangle_A.gltf" id="1_2htmw"]
 [ext_resource type="PackedScene" uid="uid://43ne23lqpyhh" path="res://assets/KayKit_Restaurant_Bits/gltf/table_round_A.gltf" id="1_rxxv7"]
 [ext_resource type="PackedScene" uid="uid://fu5os8aeurp3" path="res://assets/KayKit_Restaurant_Bits/gltf/chair_A.gltf" id="2_66mxj"]
-[ext_resource type="PackedScene" uid="uid://mtny3a011dd6" path="res://earbuds_3d_scene.tscn" id="2_bcynp"]
 [ext_resource type="PackedScene" uid="uid://0rvj7eneya11" path="res://assets/KayKit_Restaurant_Bits/gltf/wall_window_closed.gltf" id="3_bdi7n"]
 [ext_resource type="PackedScene" uid="uid://kpkw2ldrn7pj" path="res://assets/KayKit_Restaurant_Bits/gltf/wall.gltf" id="4_uhukq"]
 [ext_resource type="PackedScene" uid="uid://bm83l7douxx8l" path="res://assets/KayKit_Restaurant_Bits/gltf/floor_kitchen_small.gltf" id="5_wro5c"]
@@ -59,7 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://cccrtid4a20b5" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/snowman_B.gltf" id="51_5pgyu"]
 [ext_resource type="PackedScene" uid="uid://bte8gt258hyi5" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/wreath.gltf" id="52_0l7qm"]
 [ext_resource type="PackedScene" uid="uid://bubsgc8obbge4" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/plate_blue.gltf" id="53_84ary"]
-[ext_resource type="Material" uid="uid://cu81wyum65xf7" path="res://new_shader_material.tres" id="53_bcynp"]
+[ext_resource type="Shader" uid="uid://bbhf1upw5q5n2" path="res://clean.tres" id="53_yk8jl"]
 [ext_resource type="PackedScene" uid="uid://ee1awgrb2w8b" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/plate_decorated_A.gltf" id="54_0npjx"]
 [ext_resource type="Script" uid="uid://b1g7550glqkjn" path="res://dirty.gd" id="54_o47ye"]
 [ext_resource type="PackedScene" uid="uid://bl0lih4nem4nd" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/plate_red.gltf" id="55_4pb6w"]
@@ -109,20 +108,53 @@
 [ext_resource type="PackedScene" uid="uid://vdpjfly6cl0o" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/instantcamera_picture_A.gltf" id="104_4bnuf"]
 [ext_resource type="PackedScene" uid="uid://bjuwbhlefeoij" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/instantcamera_picture_B.gltf" id="105_uf08s"]
 [ext_resource type="PackedScene" uid="uid://uts1vplojtm6" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/instantcamera.gltf" id="106_bcynp"]
+[ext_resource type="Texture2D" uid="uid://bnjs342oio2al" path="res://assets/josephine.png" id="107_2j8i2"]
 [ext_resource type="PackedScene" uid="uid://y2ouuw7gmvpc" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/rollerskate_B.gltf" id="107_4bnuf"]
+[ext_resource type="Texture2D" uid="uid://dugbphkxc8jjw" path="res://assets/theana.png" id="108_mjcu3"]
 [ext_resource type="PackedScene" uid="uid://cn7jnyg8orh1v" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/comicbox_filled.gltf" id="108_uf08s"]
 [ext_resource type="PackedScene" uid="uid://df2fj6u5upa6x" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/idol_B.gltf" id="109_bcynp"]
+[ext_resource type="Texture2D" uid="uid://bg8evok643wv7" path="res://assets/amaury.png" id="109_mpmi1"]
 [ext_resource type="PackedScene" uid="uid://cejc8dvv3r2k6" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/footstool_red.gltf" id="110_uf08s"]
-[ext_resource type="PackedScene" uid="uid://cntgdoxiyru0w" path="res://player_k_7.tscn" id="112_o47ye"]
-[ext_resource type="PackedScene" uid="uid://cs5kd4y7yona0" path="res://k_7.tscn" id="113_ojofs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u3cyc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_anlbi"]
+noise = SubResource("FastNoiseLite_u3cyc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o47ye"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("53_yk8jl")
+shader_parameter/DirtyTexture = SubResource("NoiseTexture2D_anlbi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ojofs"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("53_yk8jl")
+shader_parameter/DirtyTexture = SubResource("NoiseTexture2D_anlbi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yk8jl"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("53_yk8jl")
+shader_parameter/DirtyTexture = SubResource("NoiseTexture2D_anlbi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0olnf"]
+shading_mode = 0
+albedo_texture = ExtResource("107_2j8i2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2nq3"]
+shading_mode = 0
+albedo_texture = ExtResource("108_mjcu3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjjp7"]
+shading_mode = 0
+albedo_texture = ExtResource("109_mpmi1")
 
 [node name="TestLD" type="Node3D" unique_id=1881580533]
 
 [node name="Plafongue" parent="." unique_id=2047454874 instance=ExtResource("1_2htmw")]
 transform = Transform3D(14.342959, 0, 0, 0, 1, 0, 0, 0, 25.944363, 16.861006, 5.877468, 23.712645)
-
-[node name="Ebuds" parent="." unique_id=780444378 instance=ExtResource("2_bcynp")]
-transform = Transform3D(0.31691945, 0.38673252, -1.6904615e-08, 6.9509954e-16, -2.1855694e-08, -0.5, -0.38673252, 0.31691945, -1.3852992e-08, 10.2499, -9.536743e-07, 0.82100844)
 
 [node name="table_round_A2" parent="." unique_id=1809279530 instance=ExtResource("1_rxxv7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.390449, -4.4703484e-08, 4.249054)
@@ -550,7 +582,6 @@ transform = Transform3D(1.0344305, 0, 0, 0, 1.0178757, 0, 0, 0, 1, 14.2546425, -
 
 [node name="door_A2" parent="." unique_id=368959128 instance=ExtResource("34_b4et5")]
 transform = Transform3D(4.486391, 0, 0, 0, 1.4121748, 0, 0, 0, 1, -3.1074104, 0, 23.492945)
-visible = false
 
 [node name="rug_rectangle_stripes_B2" parent="." unique_id=1355046102 instance=ExtResource("35_pkngq")]
 transform = Transform3D(4.3244367, 0, 0, 0, 1, 0, 0, 0, 6.6512876, 2.85, -0.1, 17.514)
@@ -597,15 +628,15 @@ transform = Transform3D(-0.91338307, 0, 0.4071011, 0, 1, 0, -0.4071011, 0, -0.91
 [node name="rug_oval_B2" parent="." unique_id=1707745236 instance=ExtResource("47_5jsfi")]
 transform = Transform3D(0.38692808, 0, 1.1992284, 0, 1, 0, -1.0752969, 0, 0.43152285, 13.963698, 0, 0.89498496)
 
-[node name="rug_oval_B" parent="rug_oval_B2" index="0" unique_id=69539381]
-material_overlay = ExtResource("53_bcynp")
+[node name="rug_oval_B" parent="rug_oval_B2" index="0" unique_id=421429015]
+material_overlay = SubResource("ShaderMaterial_o47ye")
 script = ExtResource("54_o47ye")
 
 [node name="rug_oval_B3" parent="." unique_id=302725774 instance=ExtResource("47_5jsfi")]
 transform = Transform3D(-1.0363866, 0, 0.5370375, 0, 1, 0, -0.48153853, 0, -1.1558337, 11.149346, 0, 2.7608533)
 
-[node name="rug_oval_B" parent="rug_oval_B3" index="0" unique_id=69539381]
-material_overlay = ExtResource("53_bcynp")
+[node name="rug_oval_B" parent="rug_oval_B3" index="0" unique_id=421429015]
+material_overlay = SubResource("ShaderMaterial_ojofs")
 script = ExtResource("54_o47ye")
 
 [node name="stool2" parent="." unique_id=219065401 instance=ExtResource("48_86k27")]
@@ -683,8 +714,8 @@ transform = Transform3D(0.94657856, 0, -0.32247326, 0, 1, 0, 0.32247326, 0, 0.94
 [node name="carpet_round_large2" parent="." unique_id=1447424329 instance=ExtResource("63_b1tpl")]
 transform = Transform3D(0.92153347, 0, -2.2729948, 0, 1, 0, 1.1121646, 0, 1.8833908, 15.445702, 0, 5.2649183)
 
-[node name="carpet_round_large" parent="carpet_round_large2" index="0" unique_id=545590419]
-material_overlay = ExtResource("53_bcynp")
+[node name="carpet_round_large" parent="carpet_round_large2" index="0" unique_id=1613097305]
+material_overlay = SubResource("ShaderMaterial_yk8jl")
 script = ExtResource("54_o47ye")
 
 [node name="table_low2" parent="." unique_id=1930857615 instance=ExtResource("64_gh74u")]
@@ -888,11 +919,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.000383, -0.1, 15.852057)
 [node name="instantcamera_picture_A2" parent="." unique_id=693873789 instance=ExtResource("104_4bnuf")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.197472, 1.0044881, 17.017725)
 
+[node name="instantcamera_picture_A" parent="instantcamera_picture_A2" index="0" unique_id=238158052]
+surface_material_override/1 = SubResource("StandardMaterial3D_0olnf")
+
 [node name="instantcamera_picture_A4" parent="." unique_id=49382304 instance=ExtResource("104_4bnuf")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0.40468246, 0.91445726, -1.7689231e-08, 0.91445726, -0.40468246, -3.9972196e-08, 12.197472, 0.28107664, 17.025873)
 
+[node name="instantcamera_picture_A" parent="instantcamera_picture_A4" index="0" unique_id=238158052]
+surface_material_override/1 = SubResource("StandardMaterial3D_k2nq3")
+
 [node name="instantcamera_picture_A3" parent="." unique_id=1764345742 instance=ExtResource("104_4bnuf")]
 transform = Transform3D(-4.371139e-08, 0, -1, -0.3769501, 0.9262336, 1.6477012e-08, 0.9262336, 0.3769501, -4.0486956e-08, 12.197472, 0.65333444, 17.700432)
+
+[node name="instantcamera_picture_A" parent="instantcamera_picture_A3" index="0" unique_id=238158052]
+surface_material_override/1 = SubResource("StandardMaterial3D_bjjp7")
 
 [node name="instantcamera_picture_B2" parent="." unique_id=91125166 instance=ExtResource("105_uf08s")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.192001, 0.58361626, 17.297798)
@@ -918,12 +958,9 @@ transform = Transform3D(0.43647897, 0.8873556, 0.14861515, -0.11473839, 0.218730
 [node name="footstool_red3" parent="." unique_id=237854157 instance=ExtResource("110_uf08s")]
 transform = Transform3D(0.950799, 0.30345255, 0.06243705, -0.02357575, 0.27181858, -0.9620601, -0.30891132, 0.91325307, 0.26559886, 12.703374, 0.30643338, 0.4863007)
 
-[node name="PlayerK7" parent="." unique_id=1218031161 instance=ExtResource("112_o47ye")]
-transform = Transform3D(0.15949963, 0.36682403, -1.6034388e-08, 0, -1.7484556e-08, -0.4, -0.36682403, 0.15949963, -6.9719506e-09, -2.4536476, -2.3841858e-07, 2.284782)
-
-[node name="K7" parent="." unique_id=153542959 instance=ExtResource("113_ojofs")]
-transform = Transform3D(0.18607154, -0.23532401, 1.028634e-08, 0, -1.3113417e-08, -0.3, 0.23532401, 0.18607154, -8.133446e-09, 7.6130934, -0.08276197, 11.728033)
-
 [editable path="rug_oval_B2"]
 [editable path="rug_oval_B3"]
 [editable path="carpet_round_large2"]
+[editable path="instantcamera_picture_A2"]
+[editable path="instantcamera_picture_A4"]
+[editable path="instantcamera_picture_A3"]

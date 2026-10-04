@@ -44,6 +44,8 @@ _subresources={
 "PATH:puzzlecube_incomplete": {
 "generate/physics": true,
 "physics/body_type": 1,
+"physics/layer": 8,
+"physics/mask": 11,
 "physics/shape_type": 3,
 "primitive/size": Vector3(0.42, 0.42, 0.42)
 }

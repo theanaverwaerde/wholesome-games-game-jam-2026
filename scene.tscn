@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bfn7uu8eith1n" path="res://player.tscn" id="2_3253y"]
 [ext_resource type="Material" uid="uid://cu81wyum65xf7" path="res://new_shader_material.tres" id="3_3253y"]
 [ext_resource type="Script" uid="uid://b1g7550glqkjn" path="res://dirty.gd" id="4_u3cyc"]
+[ext_resource type="PackedScene" uid="uid://mtny3a011dd6" path="res://earbuds_3d_scene.tscn" id="5_m7jmp"]
+[ext_resource type="PackedScene" uid="uid://cntgdoxiyru0w" path="res://player_k_7.tscn" id="6_ni31j"]
+[ext_resource type="PackedScene" uid="uid://c6iofncw3wjrp" path="res://collectible.tscn" id="7_73fnb"]
+[ext_resource type="PackedScene" uid="uid://cs5kd4y7yona0" path="res://k_7.tscn" id="7_xlvrw"]
 
 [sub_resource type="Environment" id="Environment_m6kt4"]
 
@@ -30,6 +34,7 @@ viewport_path = NodePath("SubViewport2")
 [node name="Scene" type="Node" unique_id=2118355527]
 
 [node name="TestLD" parent="." unique_id=1881580533 instance=ExtResource("1_nxogm")]
+metadata/_edit_lock_ = true
 
 [node name="AreaLight3D" type="AreaLight3D" parent="TestLD" unique_id=1694639408]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.7249188, 5.842056, 17.244783)
@@ -53,7 +58,7 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 10.9
 environment = SubResource("Environment_m6kt4")
 
 [node name="CharacterBody3D" parent="." unique_id=742756424 instance=ExtResource("2_3253y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.414162, 0.14999977, 17.850084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.434275, 0.14999977, 4.983769)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1684437084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99718094, 0)
@@ -103,3 +108,21 @@ texture = SubResource("ViewportTexture_vb667")
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("ViewportTexture_rjpwp")
+
+[node name="PlayerK7" parent="." unique_id=1218031161 instance=ExtResource("6_ni31j")]
+transform = Transform3D(0.15949963, 0.36682403, -1.6034388e-08, 0, -1.7484556e-08, -0.4, -0.36682403, 0.15949963, -6.9719506e-09, -2.4536476, -2.3841858e-07, 2.284782)
+
+[node name="K7" parent="." unique_id=153542959 instance=ExtResource("7_xlvrw")]
+transform = Transform3D(0.18607154, -0.23532401, 1.028634e-08, 0, -1.3113417e-08, -0.3, 0.23532401, 0.18607154, -8.133446e-09, 7.6130934, -0.08276197, 11.728033)
+
+[node name="Collectible" parent="." unique_id=1339762091 instance=ExtResource("7_73fnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.471447, 2.3841858e-07, -0.012221932)
+item_type = 2
+
+[node name="Movable" parent="Collectible" index="1" unique_id=1510443856]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+
+[node name="Ebuds" parent="Collectible/Movable" index="0" unique_id=780444378 instance=ExtResource("5_m7jmp")]
+transform = Transform3D(-0.5, 7.54979e-08, -3.300118e-15, 0, -2.1855694e-08, -0.5, -7.54979e-08, -0.5, 2.1855694e-08, 0.73202914, -0.057741135, 1.116299e-07)
+
+[editable path="Collectible"]

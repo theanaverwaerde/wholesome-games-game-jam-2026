@@ -44,6 +44,8 @@ _subresources={
 "PATH:rollerskate_pair": {
 "generate/physics": true,
 "physics/body_type": 1,
+"physics/layer": 8,
+"physics/mask": 11,
 "primitive/height": 0.4,
 "primitive/radius": 0.35
 }

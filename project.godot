@@ -66,6 +66,13 @@ action={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Solid"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Item"
+3d_physics/layer_4="Movable"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
