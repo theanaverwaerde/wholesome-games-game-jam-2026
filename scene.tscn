@@ -79,7 +79,7 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 10.9
 environment = SubResource("Environment_m6kt4")
 
 [node name="Player" parent="." unique_id=742756424 instance=ExtResource("2_3253y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.434275, 0.14999977, 4.983769)
+transform = Transform3D(0.7111704, 0, -0.70301974, 0, 1, 0, 0.70301974, 0, 0.7111704, 15.265311, 0.14999977, 9.399128)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Player" unique_id=1684437084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99718094, 0)
