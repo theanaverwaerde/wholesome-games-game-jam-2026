@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmlqxvmxr81nm"]
+
+[ext_resource type="AudioStream" uid="uid://c4bpchobkb05l" path="res://sounds/National Park.mp3" id="1_3h6ak"]
+
+[node name="Music" type="AudioStreamPlayer" unique_id=844431778]
+stream = ExtResource("1_3h6ak")

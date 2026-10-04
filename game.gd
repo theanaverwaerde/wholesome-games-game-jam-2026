@@ -43,5 +43,8 @@ func _on_hq_body_entered(body: Node3D) -> void:
 				win()
 
 func win():
-	print("win")
-	pass
+	if not Music.playing:
+		Music.play()
+		await get_tree().create_timer(5).timeout
+		# TODO black fade out animation
+		get_tree().change_scene_to_file("res://end1.tscn")

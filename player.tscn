@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bfn7uu8eith1n"]
 
 [ext_resource type="Script" uid="uid://bqjjurttickbd" path="res://character_body_3d.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://4tdwshfduinx" path="res://sounds/moving_sound.mp3" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://b8h73duc78cib" path="res://smoke_07.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://b64wwdngbpd4c" path="res://sounds/collectible.mp3" id="4_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://5ra1uyttsw04" path="res://sounds/aspiring.mp3" id="4_sweqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_m6kt4"]
 height = 0.3
@@ -9,12 +12,6 @@ height = 0.3
 [sub_resource type="CylinderMesh" id="CylinderMesh_m6kt4"]
 height = 0.3
 cap_bottom = false
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_m6kt4"]
-material = SubResource("StandardMaterial3D_4flbx")
-size = Vector3(0.6308594, 0.14746094, 0.17089844)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_p8lkw"]
 top_radius = 0.15
@@ -112,10 +109,6 @@ shape = SubResource("CylinderShape3D_m6kt4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 mesh = SubResource("CylinderMesh_m6kt4")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1407857410]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25848565, -0.2849121)
-mesh = SubResource("BoxMesh_m6kt4")
-
 [node name="Left" type="VehicleWheel3D" parent="." unique_id=728803191]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.317, 0, 0.2611609)
 use_as_traction = true
@@ -128,6 +121,11 @@ metadata/_edit_group_ = true
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_p8lkw")
 
+[node name="MovingSoundLeft" type="AudioStreamPlayer3D" parent="Left" unique_id=422462330]
+stream = ExtResource("2_hqtel")
+volume_db = -80.0
+bus = &"Moving"
+
 [node name="Right" type="VehicleWheel3D" parent="." unique_id=563084420]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.31743813, 0, 0.2611609)
 use_as_traction = true
@@ -139,6 +137,11 @@ metadata/_edit_group_ = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Right" unique_id=241871754]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_p8lkw")
+
+[node name="MovingSoundRight" type="AudioStreamPlayer3D" parent="Right" unique_id=921332621]
+stream = ExtResource("2_hqtel")
+volume_db = -80.0
+bus = &"Moving"
 
 [node name="Front" type="VehicleWheel3D" parent="." unique_id=23723761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.30405918)
@@ -187,6 +190,12 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0)
 depth = 5.49
 polygon = PackedVector2Array(0.31596088, -0.34599656, 2.409515, -3.6502688, -2.3865695, -3.6207235, -0.29144812, -0.31958732)
+
+[node name="Collectible" type="AudioStreamPlayer" parent="." unique_id=69378441]
+stream = ExtResource("4_2hs0m")
+
+[node name="Aspiring" type="AudioStreamPlayer" parent="." unique_id=1398994977]
+stream = ExtResource("4_sweqy")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

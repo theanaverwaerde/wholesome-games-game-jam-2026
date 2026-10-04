@@ -4,7 +4,7 @@ extends Control
 @onready var controls_scene: Control = $"Controls Scene"
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/room_1.tscn")
+	get_tree().change_scene_to_file("res://scene.tscn")
 
 func on_credits_pressed() -> void:
 	credits_scene.visible = true
