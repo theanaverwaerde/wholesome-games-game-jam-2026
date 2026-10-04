@@ -55,6 +55,9 @@ shader_parameter/GrayScalePercent = 1.0
 shader = ExtResource("10_gu47o")
 shader_parameter/GrayScalePercent = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8lkw"]
+size = Vector3(12.676758, 6.9294434, 12.419922)
+
 [node name="Scene" type="Node" unique_id=2118355527]
 
 [node name="TestLD" parent="." unique_id=1881580533 instance=ExtResource("1_nxogm")]
@@ -82,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 10.9
 environment = SubResource("Environment_m6kt4")
 
 [node name="Player" parent="." unique_id=742756424 instance=ExtResource("2_3253y")]
+unique_name_in_owner = true
 transform = Transform3D(0.7111704, 0, -0.70301974, 0, 1, 0, 0.70301974, 0, 0.7111704, 15.265311, 0.14999977, 9.399128)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Player" unique_id=1684437084]
@@ -216,7 +220,7 @@ layout_mode = 2
 texture = ExtResource("11_akxrc")
 expand_mode = 5
 
-[node name="Label" type="Label" parent="GameManager" unique_id=1763200868]
+[node name="MoveTuto" type="Label" parent="GameManager" unique_id=1763200868]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.001
@@ -233,7 +237,7 @@ text = "MOVE ROBOT:
  WASD or ZQSD or ARROWS (keyboard)  |  Left Stick"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="GameManager" unique_id=241027858]
+[node name="VacummTuto" type="Label" parent="GameManager" unique_id=241027858]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.002
@@ -250,7 +254,7 @@ text = "VACUUM ITEMS: 
 Hold E or Spacebar (keyboard)  |  Hold Xbox A - Switch B - PS5 X"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="GameManager" unique_id=839854576]
+[node name="DropTuto" type="Label" parent="GameManager" unique_id=839854576]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.735
@@ -266,11 +270,23 @@ text = "RELEASE ITEM:
 Simple press on VACUUM key"
 horizontal_alignment = 1
 
+[node name="FirstRoom" type="Area3D" parent="." unique_id=998264212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.463829, 0, 5.0013256)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FirstRoom" unique_id=109027119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9647217, 0)
+shape = SubResource("BoxShape3D_p8lkw")
+debug_color = Color(0.6732728, 0.30546433, 1, 0.7529412)
+
 [connection signal="drop_item" from="Player" to="GameManager" method="_on_player_drop_item"]
 [connection signal="get_item" from="Player" to="GameManager" method="_on_player_get_item"]
 [connection signal="body_entered" from="HQ" to="Player" method="_on_hq_entered"]
 [connection signal="body_entered" from="HQ" to="GameManager" method="_on_hq_body_entered"]
 [connection signal="body_exited" from="HQ" to="Player" method="_on_hq_exited"]
+[connection signal="body_exited" from="HQ" to="GameManager" method="_on_hq_body_exited"]
+[connection signal="body_exited" from="FirstRoom" to="GameManager" method="_on_first_room_body_exited"]
 
 [editable path="ItemPlayer"]
 [editable path="ItemK7"]
