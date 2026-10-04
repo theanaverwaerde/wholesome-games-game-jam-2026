@@ -61,8 +61,13 @@ distance_fade_max_distance = 2.0
 [sub_resource type="QuadMesh" id="QuadMesh_vb667"]
 material = SubResource("StandardMaterial3D_i3pqv")
 
+[sub_resource type="Curve" id="Curve_onrkg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_kbh0g"]
 texture_mode = 1
+curve = SubResource("Curve_onrkg")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qmqlm"]
 direction = Vector3(0, 0, -1)
@@ -84,6 +89,7 @@ script = ExtResource("1_4flbx")
 
 [node name="Camera3D2" type="Camera3D" parent="." unique_id=172320581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38443077, -0.29250002)
+cull_mask = 1048573
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=563267023]
