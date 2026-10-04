@@ -48,6 +48,7 @@ scale_max = 0.5
 transparency = 1
 cull_mode = 2
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.33333334)
 albedo_texture = ExtResource("2_onrkg")
 billboard_mode = 3
 particles_anim_h_frames = 1
@@ -60,6 +61,15 @@ distance_fade_max_distance = 2.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_vb667"]
 material = SubResource("StandardMaterial3D_i3pqv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u71n4"]
+shading_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vb667"]
+material = SubResource("StandardMaterial3D_u71n4")
+top_radius = 0.317
+bottom_radius = 2.405
+height = 3.27
 
 [sub_resource type="Curve" id="Curve_onrkg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -150,6 +160,12 @@ preprocess = 1.18
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_m6kt4")
 draw_pass_1 = SubResource("QuadMesh_vb667")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Grab" unique_id=1307185303]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.5295322, -1.5650425)
+visible = false
+layers = 2
+mesh = SubResource("CylinderMesh_vb667")
 
 [node name="Drop" type="GPUParticles3D" parent="." unique_id=1404620711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.467)
