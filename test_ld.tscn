@@ -118,7 +118,6 @@
 
 [node name="Plafongue" parent="." unique_id=2047454874 instance=ExtResource("1_2htmw")]
 transform = Transform3D(14.342959, 0, 0, 0, 1, 0, 0, 0, 25.944363, 16.861006, 5.877468, 23.712645)
-visible = false
 
 [node name="Ebuds" parent="." unique_id=780444378 instance=ExtResource("2_bcynp")]
 transform = Transform3D(0.31691945, 0.38673252, -1.6904615e-08, 6.9509954e-16, -2.1855694e-08, -0.5, -0.38673252, 0.31691945, -1.3852992e-08, 10.2499, -9.536743e-07, 0.82100844)
@@ -223,11 +222,9 @@ transform = Transform3D(1.3173829, 0, 0, 0, 1, 0, 0, 0, 1, 6.5696955, 0, 10.96)
 
 [node name="wall20" parent="Walls" unique_id=309075935 instance=ExtResource("4_uhukq")]
 transform = Transform3D(-3.3022707, 8.742277e-08, 0, -2.8869366e-07, -0.9999999, 0, 0, 0, 1, 2.696, 7.9, 23.607927)
-visible = false
 
 [node name="wall21" parent="Walls" unique_id=1503624628 instance=ExtResource("4_uhukq")]
 transform = Transform3D(1.3173829, 0, 0, 0, 1, 0, 0, 0, 1, 6.5696955, 0, 23.607927)
-visible = false
 
 [node name="wall8" parent="Walls" unique_id=1359965206 instance=ExtResource("4_uhukq")]
 transform = Transform3D(-9.7722456e-08, 0, 0.99999994, 0, 0.99999994, 0, -2.2356293, 0, -4.3711385e-08, 9.076, 0, 3.151)
