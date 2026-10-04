@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cu81wyum65xf7"]
+
+[ext_resource type="Shader" uid="uid://bbhf1upw5q5n2" path="res://clean.tres" id="1_50bgh"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u3cyc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_anlbi"]
+noise = SubResource("FastNoiseLite_u3cyc")
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_50bgh")
+shader_parameter/DirtyTexture = SubResource("NoiseTexture2D_anlbi")

@@ -59,7 +59,9 @@
 [ext_resource type="PackedScene" uid="uid://cccrtid4a20b5" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/snowman_B.gltf" id="51_5pgyu"]
 [ext_resource type="PackedScene" uid="uid://bte8gt258hyi5" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/wreath.gltf" id="52_0l7qm"]
 [ext_resource type="PackedScene" uid="uid://bubsgc8obbge4" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/plate_blue.gltf" id="53_84ary"]
+[ext_resource type="Material" uid="uid://cu81wyum65xf7" path="res://new_shader_material.tres" id="53_bcynp"]
 [ext_resource type="PackedScene" uid="uid://ee1awgrb2w8b" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/plate_decorated_A.gltf" id="54_0npjx"]
+[ext_resource type="Script" uid="uid://b1g7550glqkjn" path="res://dirty.gd" id="54_o47ye"]
 [ext_resource type="PackedScene" uid="uid://bl0lih4nem4nd" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/plate_red.gltf" id="55_4pb6w"]
 [ext_resource type="PackedScene" uid="uid://jp608tcrabb5" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/gingerbread_man.gltf" id="56_k1bfr"]
 [ext_resource type="PackedScene" uid="uid://c7bgvje7vulrc" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/train_wagon.gltf" id="57_7006m"]
@@ -595,8 +597,16 @@ transform = Transform3D(-0.91338307, 0, 0.4071011, 0, 1, 0, -0.4071011, 0, -0.91
 [node name="rug_oval_B2" parent="." unique_id=1707745236 instance=ExtResource("47_5jsfi")]
 transform = Transform3D(0.38692808, 0, 1.1992284, 0, 1, 0, -1.0752969, 0, 0.43152285, 13.963698, 0, 0.89498496)
 
+[node name="rug_oval_B" parent="rug_oval_B2" index="0" unique_id=69539381]
+material_overlay = ExtResource("53_bcynp")
+script = ExtResource("54_o47ye")
+
 [node name="rug_oval_B3" parent="." unique_id=302725774 instance=ExtResource("47_5jsfi")]
 transform = Transform3D(-1.0363866, 0, 0.5370375, 0, 1, 0, -0.48153853, 0, -1.1558337, 11.149346, 0, 2.7608533)
+
+[node name="rug_oval_B" parent="rug_oval_B3" index="0" unique_id=69539381]
+material_overlay = ExtResource("53_bcynp")
+script = ExtResource("54_o47ye")
 
 [node name="stool2" parent="." unique_id=219065401 instance=ExtResource("48_86k27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5009165, 0.0893085, 2.0221012)
@@ -672,6 +682,10 @@ transform = Transform3D(0.94657856, 0, -0.32247326, 0, 1, 0, 0.32247326, 0, 0.94
 
 [node name="carpet_round_large2" parent="." unique_id=1447424329 instance=ExtResource("63_b1tpl")]
 transform = Transform3D(0.92153347, 0, -2.2729948, 0, 1, 0, 1.1121646, 0, 1.8833908, 15.445702, 0, 5.2649183)
+
+[node name="carpet_round_large" parent="carpet_round_large2" index="0" unique_id=545590419]
+material_overlay = ExtResource("53_bcynp")
+script = ExtResource("54_o47ye")
 
 [node name="table_low2" parent="." unique_id=1930857615 instance=ExtResource("64_gh74u")]
 transform = Transform3D(0.7464584, 0, 0.66543204, 0, 1, 0, -0.66543204, 0, 0.7464584, 15.485986, 0.03530872, 5.2814875)
@@ -909,3 +923,7 @@ transform = Transform3D(0.15949963, 0.36682403, -1.6034388e-08, 0, -1.7484556e-0
 
 [node name="K7" parent="." unique_id=153542959 instance=ExtResource("113_ojofs")]
 transform = Transform3D(0.18607154, -0.23532401, 1.028634e-08, 0, -1.3113417e-08, -0.3, 0.23532401, 0.18607154, -8.133446e-09, 7.6130934, -0.08276197, 11.728033)
+
+[editable path="rug_oval_B2"]
+[editable path="rug_oval_B3"]
+[editable path="carpet_round_large2"]

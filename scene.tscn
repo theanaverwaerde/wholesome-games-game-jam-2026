@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://c4o8gncjo8y4o" path="res://test_ld.tscn" id="1_nxogm"]
 [ext_resource type="PackedScene" uid="uid://bfn7uu8eith1n" path="res://player.tscn" id="2_3253y"]
-[ext_resource type="Shader" uid="uid://bbhf1upw5q5n2" path="res://clean.tres" id="2_u3cyc"]
+[ext_resource type="Material" uid="uid://cu81wyum65xf7" path="res://new_shader_material.tres" id="3_3253y"]
+[ext_resource type="Script" uid="uid://b1g7550glqkjn" path="res://dirty.gd" id="4_u3cyc"]
 
 [sub_resource type="Environment" id="Environment_m6kt4"]
 
@@ -14,24 +15,9 @@ material = SubResource("StandardMaterial3D_p8lkw")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m6kt4"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_anlbi"]
-viewport_path = NodePath("SubViewport2")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_u3cyc"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_anlbi"]
-noise = SubResource("FastNoiseLite_u3cyc")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3253y"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("2_u3cyc")
-shader_parameter/DirtyTexture = SubResource("NoiseTexture2D_anlbi")
-shader_parameter/CleanedTexture = SubResource("ViewportTexture_anlbi")
-
 [sub_resource type="QuadMesh" id="QuadMesh_m6kt4"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_3253y")
+material = ExtResource("3_3253y")
 size = Vector2(25, 25)
 orientation = 1
 
@@ -83,6 +69,7 @@ shape = SubResource("WorldBoundaryShape3D_m6kt4")
 [node name="dirty" type="MeshInstance3D" parent="Ground" unique_id=855549535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 mesh = SubResource("QuadMesh_m6kt4")
+script = ExtResource("4_u3cyc")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=2125527218]
 transparent_bg = true
@@ -99,6 +86,7 @@ projection = 1
 size = 25.0
 
 [node name="SubViewport2" type="SubViewport" parent="." unique_id=992500598]
+unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
 gui_snap_controls_to_pixels = false
