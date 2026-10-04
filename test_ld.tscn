@@ -111,6 +111,8 @@
 [ext_resource type="PackedScene" uid="uid://cn7jnyg8orh1v" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/comicbox_filled.gltf" id="108_uf08s"]
 [ext_resource type="PackedScene" uid="uid://df2fj6u5upa6x" path="res://assets/KayKit_Mixed_Bag_1/Assets/gltf/idol_B.gltf" id="109_bcynp"]
 [ext_resource type="PackedScene" uid="uid://cejc8dvv3r2k6" path="res://assets/KayKit_Holiday_Bits/Assets/gltf/footstool_red.gltf" id="110_uf08s"]
+[ext_resource type="PackedScene" uid="uid://cntgdoxiyru0w" path="res://player_k_7.tscn" id="112_o47ye"]
+[ext_resource type="PackedScene" uid="uid://cs5kd4y7yona0" path="res://k_7.tscn" id="113_ojofs"]
 
 [node name="TestLD" type="Node3D" unique_id=1881580533]
 
@@ -904,3 +906,9 @@ transform = Transform3D(0.43647897, 0.8873556, 0.14861515, -0.11473839, 0.218730
 
 [node name="footstool_red3" parent="." unique_id=237854157 instance=ExtResource("110_uf08s")]
 transform = Transform3D(0.950799, 0.30345255, 0.06243705, -0.02357575, 0.27181858, -0.9620601, -0.30891132, 0.91325307, 0.26559886, 12.703374, 0.30643338, 0.4863007)
+
+[node name="PlayerK7" parent="." unique_id=1218031161 instance=ExtResource("112_o47ye")]
+transform = Transform3D(0.15949963, 0.36682403, -1.6034388e-08, 0, -1.7484556e-08, -0.4, -0.36682403, 0.15949963, -6.9719506e-09, -2.4536476, -2.3841858e-07, 2.284782)
+
+[node name="K7" parent="." unique_id=153542959 instance=ExtResource("113_ojofs")]
+transform = Transform3D(0.18607154, -0.23532401, 1.028634e-08, 0, -1.3113417e-08, -0.3, 0.23532401, 0.18607154, -8.133446e-09, 7.6130934, -0.08276197, 11.728033)
