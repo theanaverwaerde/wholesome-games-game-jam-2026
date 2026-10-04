@@ -37,6 +37,9 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_rjpwp"]
 viewport_path = NodePath("SubViewport2")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu47o"]
+size = Vector3(0.25, 0.56468844, 0.25)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_m6kt4"]
 size = Vector3(3.4091797, 2.5912476, 4.7470703)
 
@@ -137,11 +140,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3408678, -2.3841858e-07, 1
 transform = Transform3D(-0.5, 7.54979e-08, -3.300118e-15, 0, -2.1855694e-08, -0.5, -7.54979e-08, -0.5, 2.1855694e-08, 0.73202914, -0.057741135, 1.116299e-07)
 
 [node name="ItemK7" parent="." unique_id=1658087704 instance=ExtResource("7_73fnb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9948697, -0.08276197, 11.948478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.995, 0, 11.948)
 item_type = 1
 
+[node name="CollisionShape3D" parent="ItemK7" index="0" unique_id=1277389056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29034427, 0)
+shape = SubResource("BoxShape3D_gu47o")
+
 [node name="K7" parent="ItemK7/Movable" parent_id_path=PackedInt32Array(1658087704, 1510443856) index="0" unique_id=153542959 instance=ExtResource("7_xlvrw")]
-transform = Transform3D(-0.4, 6.039832e-08, -2.6400945e-15, 0, -1.7484556e-08, -0.4, -6.039832e-08, -0.4, 1.7484556e-08, 0.5950977, -0.057741135, 9.095383e-08)
+transform = Transform3D(-0.4, 6.039832e-08, -2.6400945e-15, 0, -1.7484556e-08, -0.4, -6.039832e-08, -0.4, 1.7484556e-08, 0.5950977, -0.23332849, 9.8629e-08)
 
 [node name="ItemEarbuds" parent="." unique_id=1339762091 instance=ExtResource("7_73fnb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.471447, 2.3841858e-07, -0.012221932)
