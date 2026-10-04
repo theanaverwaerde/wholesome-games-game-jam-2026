@@ -71,6 +71,8 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+can_sleep = false
+freeze_mode = 1
 linear_damp = 14.31
 script = ExtResource("1_rd2yi")
 

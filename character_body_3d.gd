@@ -13,17 +13,22 @@ const DEFAULT_BRAKE = 2000.0
 @onready var mesh_instance_3d: MeshInstance3D = $Grab/MeshInstance3D
 
 var vacuum: bool
+var in_hq: bool
 
 var items_area: Array[Collectible]
-var item_in: Collectible
+var items_in:  Array[Collectible]
+
+signal get_item(item: Collectible)
+signal drop_item(item: Collectible)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action"):
-		if item_in != null:
-			item_in.global_position = global_position + -transform.basis.z * .6
-			item_in.visible = true
-			item_in.apply_force(-transform.basis.z * DROP_FORCE)
-			item_in = null
+		if items_in.size() > 0 and in_hq:
+			var i = items_in.pop_back()
+			i.global_position = global_position + -transform.basis.z * .6
+			i.drop_vacuum()
+			drop_item.emit(i)
+			i.apply_force(-transform.basis.z * DROP_FORCE)
 			drop.emitting = true
 		else:
 			vacuum = true
@@ -54,11 +59,10 @@ func _physics_process(_delta: float) -> void:
 	if vacuum:
 		for i in items_area:
 			if global_position.distance_to(i.global_position) < .6:
-				item_in = i
-				i.visible = false
+				items_in.append(i)
+				i.in_vacuum()
 				print("in: " + i.name)
-				vacuum_stop()
-				return
+				get_item.emit(i)
 			else:
 				print((global_position - i.global_position).normalized())
 				i.apply_force((global_position - i.global_position).normalized() * VACUUM_FORCE)
@@ -73,8 +77,21 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	print(body.name)
 	items_area.append(body as Collectible)
 
-
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	print("exit")
 	print(body.name)
 	items_area.remove_at(items_area.find(body))
+
+func _on_hq_entered(body: Node3D) -> void:
+	if body == self:
+		in_hq = true
+		return
+	print("enter hq")
+	print(body.name)
+
+func _on_hq_exited(body: Node3D) -> void:
+	if body == self:
+		in_hq = false
+		return
+	print("exit hq")
+	print(body.name)

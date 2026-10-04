@@ -1,0 +1,48 @@
+[gd_resource type="VisualShader" format=3 uid="uid://wj18u52kld3f"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_hbric"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeReroute" id="VisualShaderNodeReroute_r43ct"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_hbric"]
+input_name = "texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_r43ct"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_jskx7"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_x35hv"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_hi252"]
+default_input_values = [0, 0.0, 1, 3.0]
+operator = 3
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_jskx7"]
+parameter_name = "GrayScalePercent"
+
+[resource]
+mode = 1
+flags/light_only = false
+preview_params/GrayScalePercent = "0.0"
+nodes/fragment/0/position = Vector2(360, 0)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_hbric")
+nodes/fragment/2/position = Vector2(-1550, 130)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_r43ct")
+nodes/fragment/3/position = Vector2(-1160, -30)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatOp_jskx7")
+nodes/fragment/4/position = Vector2(-790, 90)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_x35hv")
+nodes/fragment/5/position = Vector2(-540, 160)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatOp_hi252")
+nodes/fragment/6/position = Vector2(-270, 160)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatParameter_jskx7")
+nodes/fragment/9/position = Vector2(-400, 340)
+nodes/fragment/10/node = SubResource("VisualShaderNodeMix_hbric")
+nodes/fragment/10/position = Vector2(90, -30)
+nodes/fragment/11/node = SubResource("VisualShaderNodeReroute_r43ct")
+nodes/fragment/11/position = Vector2(-790, 230)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 0, 5, 0, 3, 1, 4, 0, 3, 2, 4, 1, 5, 0, 6, 0, 3, 3, 11, 0, 11, 0, 5, 1, 10, 0, 0, 0, 9, 0, 10, 2, 6, 0, 10, 1, 3, 0, 10, 0)

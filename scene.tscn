@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cntgdoxiyru0w" path="res://player_k_7.tscn" id="6_ni31j"]
 [ext_resource type="PackedScene" uid="uid://c6iofncw3wjrp" path="res://collectible.tscn" id="7_73fnb"]
 [ext_resource type="PackedScene" uid="uid://cs5kd4y7yona0" path="res://k_7.tscn" id="7_xlvrw"]
+[ext_resource type="Script" uid="uid://yyf2nesttqfr" path="res://game.gd" id="9_akxrc"]
+[ext_resource type="Texture2D" uid="uid://5kn6vnr0lud8" path="res://assets/Earbuds2.png" id="9_fy5k1"]
+[ext_resource type="Texture2D" uid="uid://cc8jlyv2d6h3k" path="res://assets/Player2.png" id="10_5c1cw"]
+[ext_resource type="Shader" uid="uid://wj18u52kld3f" path="res://item_ui.tres" id="10_gu47o"]
+[ext_resource type="Texture2D" uid="uid://clys4j7sr1c5p" path="res://assets/K72.png" id="11_akxrc"]
 
 [sub_resource type="Environment" id="Environment_m6kt4"]
 
@@ -30,6 +35,21 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rjpwp"]
 viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6kt4"]
+size = Vector3(3.4091797, 2.5912476, 4.7470703)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akxrc"]
+shader = ExtResource("10_gu47o")
+shader_parameter/GrayScalePercent = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gu47o"]
+shader = ExtResource("10_gu47o")
+shader_parameter/GrayScalePercent = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hm71"]
+shader = ExtResource("10_gu47o")
+shader_parameter/GrayScalePercent = 1.0
 
 [node name="Scene" type="Node" unique_id=2118355527]
 
@@ -57,10 +77,10 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 10.9
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=606101560]
 environment = SubResource("Environment_m6kt4")
 
-[node name="CharacterBody3D" parent="." unique_id=742756424 instance=ExtResource("2_3253y")]
+[node name="Player" parent="." unique_id=742756424 instance=ExtResource("2_3253y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.434275, 0.14999977, 4.983769)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1684437084]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Player" unique_id=1684437084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99718094, 0)
 layers = 2
 mesh = SubResource("SphereMesh_m6kt4")
@@ -109,20 +129,83 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("ViewportTexture_rjpwp")
 
-[node name="PlayerK7" parent="." unique_id=1218031161 instance=ExtResource("6_ni31j")]
-transform = Transform3D(0.15949963, 0.36682403, -1.6034388e-08, 0, -1.7484556e-08, -0.4, -0.36682403, 0.15949963, -6.9719506e-09, -2.4536476, -2.3841858e-07, 2.284782)
+[node name="ItemPlayer" parent="." unique_id=20436877 instance=ExtResource("7_73fnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3408678, -2.3841858e-07, 1.7755237)
 
-[node name="K7" parent="." unique_id=153542959 instance=ExtResource("7_xlvrw")]
-transform = Transform3D(0.18607154, -0.23532401, 1.028634e-08, 0, -1.3113417e-08, -0.3, 0.23532401, 0.18607154, -8.133446e-09, 7.6130934, -0.08276197, 11.728033)
+[node name="PlayerK7" parent="ItemPlayer/Movable" parent_id_path=PackedInt32Array(20436877, 1510443856) index="0" unique_id=1218031161 instance=ExtResource("6_ni31j")]
+transform = Transform3D(-0.5, 7.54979e-08, -3.300118e-15, 0, -2.1855694e-08, -0.5, -7.54979e-08, -0.5, 2.1855694e-08, 0.73202914, -0.057741135, 1.116299e-07)
 
-[node name="Collectible" parent="." unique_id=1339762091 instance=ExtResource("7_73fnb")]
+[node name="ItemK7" parent="." unique_id=1658087704 instance=ExtResource("7_73fnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9948697, -0.08276197, 11.948478)
+item_type = 1
+
+[node name="K7" parent="ItemK7/Movable" parent_id_path=PackedInt32Array(1658087704, 1510443856) index="0" unique_id=153542959 instance=ExtResource("7_xlvrw")]
+transform = Transform3D(-0.4, 6.039832e-08, -2.6400945e-15, 0, -1.7484556e-08, -0.4, -6.039832e-08, -0.4, 1.7484556e-08, 0.5950977, -0.057741135, 9.095383e-08)
+
+[node name="ItemEarbuds" parent="." unique_id=1339762091 instance=ExtResource("7_73fnb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.471447, 2.3841858e-07, -0.012221932)
 item_type = 2
 
-[node name="Movable" parent="Collectible" index="1" unique_id=1510443856]
+[node name="Movable" parent="ItemEarbuds" index="1" unique_id=1510443856]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
-[node name="Ebuds" parent="Collectible/Movable" index="0" unique_id=780444378 instance=ExtResource("5_m7jmp")]
+[node name="Ebuds" parent="ItemEarbuds/Movable" index="0" unique_id=780444378 instance=ExtResource("5_m7jmp")]
 transform = Transform3D(-0.5, 7.54979e-08, -3.300118e-15, 0, -2.1855694e-08, -0.5, -7.54979e-08, -0.5, 2.1855694e-08, 0.73202914, -0.057741135, 1.116299e-07)
 
-[editable path="Collectible"]
+[node name="HQ" type="Area3D" parent="." unique_id=530162970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.768899, -2.3841858e-07, 17.756195)
+collision_layer = 16
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HQ" unique_id=1283679056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042445183, 0.6202698, 0)
+shape = SubResource("BoxShape3D_m6kt4")
+debug_color = Color(0.29803923, 1, 0, 1)
+
+[node name="GameManager" type="Control" parent="." unique_id=864172365]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_akxrc")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="GameManager" unique_id=413108272]
+layout_mode = 0
+offset_right = 37.0
+offset_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UIEarbuds" type="TextureRect" parent="GameManager/HBoxContainer" unique_id=1370742003]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_akxrc")
+layout_mode = 2
+texture = ExtResource("9_fy5k1")
+expand_mode = 5
+
+[node name="UIPlayer" type="TextureRect" parent="GameManager/HBoxContainer" unique_id=105776414]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_gu47o")
+layout_mode = 2
+texture = ExtResource("10_5c1cw")
+expand_mode = 5
+
+[node name="UIK7" type="TextureRect" parent="GameManager/HBoxContainer" unique_id=956394143]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8hm71")
+layout_mode = 2
+texture = ExtResource("11_akxrc")
+expand_mode = 5
+
+[connection signal="drop_item" from="Player" to="GameManager" method="_on_player_drop_item"]
+[connection signal="get_item" from="Player" to="GameManager" method="_on_player_get_item"]
+[connection signal="body_entered" from="HQ" to="Player" method="_on_hq_entered"]
+[connection signal="body_entered" from="HQ" to="GameManager" method="_on_hq_body_entered"]
+[connection signal="body_exited" from="HQ" to="Player" method="_on_hq_exited"]
+
+[editable path="ItemPlayer"]
+[editable path="ItemK7"]
+[editable path="ItemEarbuds"]
